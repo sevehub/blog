@@ -106,14 +106,7 @@ Usage: node Build-TypstSite.js --source <dir> --output <dir> [--watch] [--no-ind
 const typstCheck = spawnSync('typst', ['--version'], { encoding: 'utf8' });
 if (typstCheck.error) {
   console.error('Typst CLI not found on PATH. Install it with: winget install --id Typst.Typst');
-  pif (failures.length) {
-  const report = failures.join('\n---\n');
-  console.error(`\n${failures.length} failure(s):\n${report}`);
-  if (process.env.GITHUB_STEP_SUMMARY) {
-    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Typst errors\n```\n' + report + '\n```\n');
-  }
-  process.exitCode = 1;
-}rocess.exit(1);
+  process.exit(1);
 }
 
 if (!fs.existsSync(args.source)) {
@@ -407,7 +400,7 @@ failures.push(`${typName} (exit ${result.status})\n${(result.stderr || '').trim(
   let title = getTitle(html);
   if (!title) title = path.basename(typFilePath, '.typ');
 
-  const keywords = getMetaContent(html, 'keywords');
+  const keywords = null; // keywords disabled for now
   const dateStr = getMetaContent(html, 'date');
 
   let postDate = null;
@@ -540,12 +533,6 @@ function buildAll() {
   buildIndex(posts);
   console.log(`Done. ${posts.length}/${typFiles.length} files built to ${OutputDir}`);
 
- usedNames = new Set();
-  const posts = typFiles.map(buildOne).filter(Boolean);
-  buildIndex(posts);
-  console.log(`Done. ${posts.length}/${typFiles.length} files built to ${OutputDir}`);
-
-  // --- paste here ---
   if (failures.length) {
     const report = failures.join('\n---\n');
     console.error(`\n${failures.length} failure(s):\n${report}`);
