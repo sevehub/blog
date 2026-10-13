@@ -238,7 +238,7 @@ const icsContent = lines.join(String.fromCharCode(13) + String.fromCharCode(10))
 const NavBar = `
 <nav id="sevetech-nav">
   <div class="nav-left">
-    <a href="https://paperstackpro.surge.sh/index.html">&larr; Index</a>
+    <a href="https://sevehub.github.io/blog">&larr; Index</a>
     <span class="divider">|</span>
     <a href="https://sites.google.com/view/paperstackpro/home/blog" class="nav-brand">&#127968; PaperStackPro</a>
   </div>
