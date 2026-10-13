@@ -1,4 +1,4 @@
-#import "libs/website.typ": article
+#import "/libs/website.typ": article
 
 #show: article.with(
   title: "Pages deploy test",
