@@ -106,7 +106,14 @@ Usage: node Build-TypstSite.js --source <dir> --output <dir> [--watch] [--no-ind
 const typstCheck = spawnSync('typst', ['--version'], { encoding: 'utf8' });
 if (typstCheck.error) {
   console.error('Typst CLI not found on PATH. Install it with: winget install --id Typst.Typst');
-  process.exit(1);
+  pif (failures.length) {
+  const report = failures.join('\n---\n');
+  console.error(`\n${failures.length} failure(s):\n${report}`);
+  if (process.env.GITHUB_STEP_SUMMARY) {
+    fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Typst errors\n```\n' + report + '\n```\n');
+  }
+  process.exitCode = 1;
+}rocess.exit(1);
 }
 
 if (!fs.existsSync(args.source)) {
@@ -360,6 +367,7 @@ if (entry.name === 'Figures' || entry.name === 'libs') continue;
 // --- Build one post ----------------------------------------------------------
 
 let usedNames;
+const failures = [];
 
 function buildOne(typFilePath) {
   const typName = path.basename(typFilePath);
@@ -373,6 +381,7 @@ function buildOne(typFilePath) {
   if (result.error) {
     console.warn(`  Failed to run typst on ${typName}: ${result.error.message}`);
     if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+failures.push(`${typName}\n${result.error.message}`);
     return null;
   }
 
@@ -389,6 +398,7 @@ function buildOne(typFilePath) {
   if (result.status !== 0) {
     console.warn(`  typst failed on ${typName} (exit code ${result.status})`);
     if (fs.existsSync(tempPath)) fs.unlinkSync(tempPath);
+failures.push(`${typName} (exit ${result.status})\n${(result.stderr || '').trim()}`);
     return null;
   }
 
@@ -529,6 +539,21 @@ function buildAll() {
   const posts = typFiles.map(buildOne).filter(Boolean);
   buildIndex(posts);
   console.log(`Done. ${posts.length}/${typFiles.length} files built to ${OutputDir}`);
+
+ usedNames = new Set();
+  const posts = typFiles.map(buildOne).filter(Boolean);
+  buildIndex(posts);
+  console.log(`Done. ${posts.length}/${typFiles.length} files built to ${OutputDir}`);
+
+  // --- paste here ---
+  if (failures.length) {
+    const report = failures.join('\n---\n');
+    console.error(`\n${failures.length} failure(s):\n${report}`);
+    if (process.env.GITHUB_STEP_SUMMARY) {
+      fs.appendFileSync(process.env.GITHUB_STEP_SUMMARY, '## Typst errors\n```\n' + report + '\n```\n');
+    }
+    process.exitCode = 1;
+  }
 }
 
 // --- Run -------------------------------------------------------------------
