@@ -137,7 +137,7 @@ const MobileHead = `
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link href="https://fonts.googleapis.com/css2?family=Georgia&family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
-<link rel="shortcut icon" href="https://tessarinseve.pythonanywhere.com/nws/theme/imgs/favicon.ico" type="image/x-icon">
+<link rel="shortcut icon" href="static/favicon.ico" type="image/x-icon">
 <link rel="apple-touch-icon" href="https://tessarinseve.pythonanywhere.com/nws/theme/imgs/apple-touch-icon.png"/>
 <link rel="apple-touch-icon" sizes="72x72" href="https://tessarinseve.pythonanywhere.com/nws/theme/imgs/apple-touch-icon-72x72.png"/>
 <link rel="apple-touch-icon" sizes="114x114" href="https://tessarinseve.pythonanywhere.com/nws/theme/imgs/apple-touch-icon-114x114.png"/>
@@ -244,7 +244,7 @@ const icsContent = lines.join(String.fromCharCode(13) + String.fromCharCode(10))
 const NavBar = `
 <nav id="sevetech-nav">
   <div class="nav-left">
-    <a href="https://paperstackpro.surge.sh/index.html">&larr; Index</a>
+    <a href="https://sevehub.github.io/blog/">&larr; Index</a>
     <span class="divider">|</span>
     <a href="https://sites.google.com/view/paperstackpro/home/blog" class="nav-brand">&#127968; PaperStackPro</a>
   </div>
