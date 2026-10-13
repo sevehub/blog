@@ -121,6 +121,12 @@ fs.mkdirSync(OutputDir, { recursive: true });
 // Filename pattern for generated posts: 2026W32_my-post-title.html
 const PostNamePattern = /^\d{4}W\d{2}_.*\.html$/;
 
+// Public base URL (no trailing slash); override with SITE_BASE for a custom domain.
+const SiteBase = (process.env.SITE_BASE || 'https://sevehub.github.io/blog').replace(/\/$/, '');
+const OgTemplate = path.join(__dirname, 'templates', 'og-card.typ');
+const StaticDir = path.join(__dirname, 'static');
+fs.mkdirSync(path.join(OutputDir, 'og'), { recursive: true });
+
 // --- Mobile-friendly head injected into every page ---------------------------
 
 const MobileHead = `
@@ -238,7 +244,7 @@ const icsContent = lines.join(String.fromCharCode(13) + String.fromCharCode(10))
 const NavBar = `
 <nav id="sevetech-nav">
   <div class="nav-left">
-    <a href="https://sevehub.github.io/blog">&larr; Index</a>
+    <a href="https://paperstackpro.surge.sh/index.html">&larr; Index</a>
     <span class="divider">|</span>
     <a href="https://sites.google.com/view/paperstackpro/home/blog" class="nav-brand">&#127968; PaperStackPro</a>
   </div>
@@ -338,6 +344,49 @@ function addMobileHead(htmlPath) {
   fs.writeFileSync(htmlPath, content, 'utf8');
 }
 
+// --- Open Graph card + sitemap ---------------------------------------------------
+
+function makeOgImage(title, name) {
+  const png = path.join(OutputDir, 'og', `${name}.png`);
+  const r = spawnSync(
+    'typst',
+    ['compile', '--format', 'png', '--ppi', '72', '--input', `title=${title}`, OgTemplate, png],
+    { encoding: 'utf8' }
+  );
+  if (r.error || r.status !== 0) {
+    console.warn(`  og image failed for ${name}`);
+    failures.push(`og image ${name}\n${(r.stderr || (r.error && r.error.message) || '').trim()}`);
+    return null;
+  }
+  return `${SiteBase}/og/${name}.png`;
+}
+
+function setOgImage(htmlPath, url) {
+  let c = fs.readFileSync(htmlPath, 'utf8');
+  const tag = `<meta property="og:image" content="${url}">\n<meta name="twitter:card" content="summary_large_image">`;
+  const re = /<meta\b[^>]*property\s*=\s*["']og:image["'][^>]*>/i;
+  c = re.test(c) ? c.replace(re, () => tag) : c.replace('</head>', () => `${tag}\n</head>`);
+  fs.writeFileSync(htmlPath, c, 'utf8');
+}
+
+function writeSitemap(posts) {
+  const urls = [{ loc: `${SiteBase}/`, lastmod: null }].concat(
+    posts.map((p) => ({ loc: `${SiteBase}/${p.fileName}`, lastmod: p.date.toISOString().slice(0, 10) }))
+  );
+  const body = urls
+    .map((u) => `  <url><loc>${htmlEncode(u.loc)}</loc>${u.lastmod ? `<lastmod>${u.lastmod}</lastmod>` : ''}</url>`)
+    .join('\n');
+  fs.writeFileSync(
+    path.join(OutputDir, 'sitemap.xml'),
+    `<?xml version="1.0" encoding="UTF-8"?>\n<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">\n${body}\n</urlset>\n`,
+    'utf8'
+  );
+  const robots = path.join(OutputDir, 'robots.txt');
+  if (!fs.existsSync(robots)) {
+    fs.writeFileSync(robots, `User-agent: *\nAllow: /\n\nSitemap: ${SiteBase}/sitemap.xml\n`, 'utf8');
+  }
+}
+
 // --- File discovery --------------------------------------------------------
 
 function findTypFiles(dir) {
@@ -432,6 +481,8 @@ failures.push(`${typName} (exit ${result.status})\n${(result.stderr || '').trim(
   const finalPath = path.join(OutputDir, finalName);
 
   addMobileHead(tempPath);
+  const ogUrl = makeOgImage(title, finalName.replace(/\.html$/, ''));
+  if (ogUrl) setOgImage(tempPath, ogUrl);
   fs.renameSync(tempPath, finalPath);
 
   console.log(`  -> ${finalName}`);
@@ -528,9 +579,11 @@ function buildAll() {
     return;
   }
 
+  if (fs.existsSync(StaticDir)) fs.cpSync(StaticDir, OutputDir, { recursive: true });
   usedNames = new Set();
   const posts = typFiles.map(buildOne).filter(Boolean);
   buildIndex(posts);
+  writeSitemap(posts);
   console.log(`Done. ${posts.length}/${typFiles.length} files built to ${OutputDir}`);
 
   if (failures.length) {
@@ -558,3 +611,4 @@ if (args.watch) {
     if (filename && filename.endsWith('.typ')) trigger();
   });
 }
+

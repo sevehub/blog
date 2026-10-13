@@ -2,11 +2,28 @@
 
 Typst posts compiled to static HTML and published on GitHub Pages.
 
+
 ## Layout
 
-- `posts/` : `.typ` posts and `website.typ` (shared template, imported by each post)
-- `Build-TypstSite.js` : builds `posts/` into an ISO-week timeline site (Node built-ins only, Typst CLI required)
-- `.github/workflows/pages.yml` : builds and deploys on push to `main`
+```
+blog/
+├── Build-TypstSite.js         # builds posts/ into dist/ (Node built-ins only, Typst CLI required)
+├── templates/
+│   └── og-card.typ            # 1200x630 Open Graph card, title taken from each post
+├── static/
+│   └── favicon.ico            # copied to the site root on every build
+├── posts/
+│   ├── libs/
+│   │   └── website.typ        # shared template, imported by each post
+│   ├── Figures/               # images used by posts
+│   └── *.typ                  # one file per post
+├── .github/workflows/
+│   └── pages.yml              # builds and deploys on push to main
+└── dist/                      # generated output, not committed
+```
+
+`dist/` also receives `og/` (cards), `sitemap.xml` and `robots.txt`. Posts import the template with `#import "libs/website.typ": article` and reference images as `Figures/name.png` (case-sensitive on the runne
+
 
 ## Write a post
 1. Drafting and the markdown-to-Typst conversion happen locally, outside this repository. Commit the finished `.typ` file to `posts/` on `main`, using `article(...)` from `website.typ`. The `date` argument sets the ISO week in the filename. The workflow deploys in about one to two minutes.
