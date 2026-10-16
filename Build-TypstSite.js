@@ -157,6 +157,7 @@ const ExtendJS = `
   var lastY = window.scrollY;
   var threshold = 8; // px of scroll before we react, avoids jitter
 
+  document.querySelectorAll('img').forEach((img) => img.classList.add('loaded'));
   // ---- auto-hide on scroll direction ----
   window.addEventListener('scroll', function () {
     var y = window.scrollY;

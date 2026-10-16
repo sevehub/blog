@@ -39,7 +39,7 @@ I described how Typst and a custom Vim9script power the engine of a
 static blog website. Here I want to discuss why Using two
 #strong[Parallel Editors] as a true 1:1 Markdown link between Obsidian
 and Vim can be beneficial. Both applications read and write the same
-plain???Markdown files, the same note can therefore be opened in
+plain Markdown files, the same note can therefore be opened in
 Obsidian showing the rich preview/graph view, or in Vim, which provides
 fast, modal editing. Any change made in one editor instantly appears in
 the other.
@@ -50,7 +50,7 @@ in Vim provides fast modal editing and the possibility to then promotes
 the draft version into a `.typ` file, ready for the final build.
 
 The publishing stage is fully automated via GitHub Actions. A push of
-the promoted file to the repository???s main branch triggers a workflow
+the promoted file to the repository's main branch triggers a workflow
 that spins up a runner, invokes the Typst compiler, generates static
 HTML, and deploys it to GitHub Pages. By offloading compilation to the
 cloud, the local workstation remains a pure creative space.
@@ -84,7 +84,7 @@ feature and requires no plugin.
 
 #image("Figures/Pasted image 20261015134229.jpg")
 
-== Skills and Prompts
+= Skills and Prompts
 <skills-and-prompts>
 The folder `50_Skills_Prompts` contains a single note for each skill or prompt.  
 Each note is created from the `Skill‑Prompt` template (saved in the `Templates` folder by the setup script). The template defines four fields:
@@ -108,6 +108,6 @@ labels such as `N3-14F`, and the weekly files like `2026-W42.md` all
 stem from fixed conventions: the paper notebook's numbering system and
 the ISO-week calendar. The only cost is a brief setup phase: run a
 one-time script, add a tiny custom plugin, and enable a few Obsidian
-settings that cannot be preset. After that bootstrap, the vault???s
+settings that cannot be preset. After that bootstrap, the vault's
 structure remains wholly prescribed, eliminating the need for any later
 ad-hoc naming or folder creation.
