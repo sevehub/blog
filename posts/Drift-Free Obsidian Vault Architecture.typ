@@ -82,7 +82,7 @@ is defined with a path query, for example `path:30_Zettelkasten/N3/`, so
 that the eight categories appear as eight colours. This is a built-in
 feature and requires no plugin.
 
-#image("Figures/Pasted image 20261015134229.png")
+#image("Figures/Pasted image 20261015134229.jpg")
 
 == Skills and Prompts
 <skills-and-prompts>
