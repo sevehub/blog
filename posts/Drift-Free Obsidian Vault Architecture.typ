@@ -25,29 +25,7 @@ script #link("https://github.com/sevehub/PowerShellUtils/blob/main/Obsidian/Crea
 It scaffolds a top-level hierarchy of seven purpose-driven
 directories:
 
-#figure(
-  align(center)[#table(
-    columns: 3,
-    align: (auto,auto,auto,),
-    table.header([Prefix], [Folder], [Purpose],),
-    table.hline(),
-    [#strong[00]], [`Inbox`], [Capture raw, unprocessed notes],
-    [#strong[10]], [`Blog`], [Store blog drafts in a flat structure],
-    [#strong[20]], [`AI_Worklog`], [Record weekly AI work log
-    tallies],
-    [#strong[30]], [`Zettelkasten`], [Maintain indexed,
-    reference-style notes],
-    [#strong[40]], [`Projects`], [Organise future projects and
-    initiatives],
-    [50], [Download], [Claude Skills],
-    [#strong[]], [`Attachments`], [Keep media assets and supporting
-    files],
-    [#strong[]], [`Templates`], [House reusable note templates],
-  )]
-  , kind: table
-  )
-
-
+#image("Figures/obsidian-table.png")
 
 Numeric prefixes enforce a stable ordering in the file explorer,
 ensuring that the logical workflow remains consistent as the vault
