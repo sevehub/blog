@@ -36,7 +36,7 @@ expands.
 In a
 #link("https://sevehub.github.io/blog/2026W33_typst-vim9script-a-journey-to-a-new-self-published-blog.html")[previous blog post],
 I described how Typst and a custom Vim9script power the engine of a
-static blog website. Here I want to discuss why Using two
+static blog website. Here, I want to discuss why using two
 #strong[Parallel Editors] as a true 1:1 Markdown link between Obsidian
 and Vim can be beneficial. Both applications read and write the same
 plain Markdown files, the same note can therefore be opened in
