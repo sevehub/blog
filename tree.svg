@@ -1,0 +1,71 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="256" height="176">
+    <style>
+        line, path, circle, rect, polygon{stroke:black;stroke-width:2;stroke-opacity:1;fill-opacity:1;stroke-linecap:round;stroke-linejoin:miter;}text{font-family:Iosevka Fixed, monospace;font-size:14px;}rect.backdrop{stroke:none;fill:transparent;}.broken{stroke-dasharray:8;}.filled{fill:black;}.bg_filled{fill:transparent;}.nofill{fill:transparent;}.end_marked_arrow{marker-end:url(#arrow);}.start_marked_arrow{marker-start:url(#arrow);}.end_marked_diamond{marker-end:url(#diamond);}.start_marked_diamond{marker-start:url(#diamond);}.end_marked_circle{marker-end:url(#circle);}.start_marked_circle{marker-start:url(#circle);}.end_marked_open_circle{marker-end:url(#open_circle);}.start_marked_open_circle{marker-start:url(#open_circle);}.end_marked_big_open_circle{marker-end:url(#big_open_circle);}.start_marked_big_open_circle{marker-start:url(#big_open_circle);}
+        <!--separator-->
+        
+    </style>
+    <defs>
+        <marker id="arrow" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,0 0,4 4,2 0,0"></polygon>
+        </marker>
+        <marker id="diamond" viewBox="-2 -2 8 8" refX="4" refY="2" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <polygon points="0,2 2,0 4,2 2,4 0,2"></polygon>
+        </marker>
+        <marker id="circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="filled"></circle>
+        </marker>
+        <marker id="open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="2" class="bg_filled"></circle>
+        </marker>
+        <marker id="big_open_circle" viewBox="0 0 8 8" refX="4" refY="4" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+            <circle cx="4" cy="4" r="3" class="bg_filled"></circle>
+        </marker>
+    </defs>
+    <rect class="backdrop" x="0" y="0" width="256" height="176"></rect>
+    <text x="2" y="12">blog</text>
+    <line x1="40" y1="0" x2="32" y2="16" class="solid"></line>
+    <text x="34" y="28">Build</text>
+    <line x1="72" y1="24" x2="80" y2="24" class="solid"></line>
+    <text x="82" y="28">TypstSite.js</text>
+    <text x="34" y="44">templates</text>
+    <line x1="112" y1="32" x2="104" y2="48" class="solid"></line>
+    <text x="66" y="60">og</text>
+    <line x1="80" y1="56" x2="88" y2="56" class="solid"></line>
+    <text x="90" y="60">card.typ</text>
+    <text x="34" y="76">static</text>
+    <line x1="88" y1="64" x2="80" y2="80" class="solid"></line>
+    <text x="66" y="92">favicon.ico</text>
+    <text x="34" y="108">posts</text>
+    <line x1="80" y1="96" x2="72" y2="112" class="solid"></line>
+    <text x="66" y="124">libs</text>
+    <line x1="104" y1="112" x2="96" y2="128" class="solid"></line>
+    <text x="106" y="124">website.typ</text>
+    <text x="66" y="140">Figures</text>
+    <line x1="128" y1="128" x2="120" y2="144" class="solid"></line>
+    <text x="34" y="156">.github</text>
+    <line x1="96" y1="144" x2="88" y2="160" class="solid"></line>
+    <text x="98" y="156">workflows</text>
+    <line x1="176" y1="144" x2="168" y2="160" class="solid"></line>
+    <text x="178" y="156">pages.yml</text>
+    <g>
+        <line x1="4" y1="16" x2="4" y2="152" class="solid"></line>
+        <line x1="4" y1="24" x2="24" y2="24" class="solid"></line>
+        <line x1="4" y1="40" x2="24" y2="40" class="solid"></line>
+        <line x1="4" y1="72" x2="24" y2="72" class="solid"></line>
+        <line x1="4" y1="104" x2="24" y2="104" class="solid"></line>
+        <line x1="4" y1="152" x2="24" y2="152" class="solid"></line>
+    </g>
+    <g>
+        <line x1="36" y1="48" x2="36" y2="56" class="solid"></line>
+        <line x1="36" y1="56" x2="56" y2="56" class="solid"></line>
+    </g>
+    <g>
+        <line x1="36" y1="80" x2="36" y2="88" class="solid"></line>
+        <line x1="36" y1="88" x2="56" y2="88" class="solid"></line>
+    </g>
+    <g>
+        <line x1="36" y1="112" x2="36" y2="136" class="solid"></line>
+        <line x1="36" y1="120" x2="56" y2="120" class="solid"></line>
+        <line x1="36" y1="136" x2="56" y2="136" class="solid"></line>
+    </g>
+</svg>
