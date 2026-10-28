@@ -15,15 +15,16 @@ command line generator #emph[qrencode], a sophisticated tool for
 creating such codes, has been covered in a
 #link("https://tessarinseve.pythonanywhere.com/nws/2024-09-05.wiki.html")[previous post].
 However, command line tools require a local installation and a working
-shell, which limits their use. This post is therefore dedicated to
+shell, which limits their use. This post is dedicated to
 several alternatives in which the entire process, from URL to printable
-code, requires only a mobile phone web-browser. \# The notebook with a
-digital toolbox
+code, requires only a mobile phone web-browser. 
+
+= The notebook with a digital toolbox
 
 The #link("https://a.co/d/0iz97Ylo")[INK notebook] , designed as an
-enhanced version of Field Notes paper notebooks, is well suited to fast
+enhanced version of *Field Notes* paper notebooks, is well suited to fast
 notes and to everything that is quicker on paper than on a screen. It is
-paired with a small toolbox available through a QR code printed in the
+paired with a digital toolbox available through a QR code printed inside the
 notebook, for the tasks that are better handled in digital form.
 
 The first tool (No.~02) described here is the #strong[Bookmark Manager].
@@ -36,8 +37,8 @@ data remains on the local device.
 A limitation of this design is that browser storage is tied to a single
 browser profile. Bookmarks saved on one device are not available on
 another unless they are exported or copied manually, and clearing
-browser data removes the stored list (there is a different app if you
-need to store and share using the cloud).
+browser data removes the stored list (there is a different app, No 08, if you
+need to store and share URLs using the cloud).
 
 The Bookmark Manager also includes a QR scanner, which extracts the URL
 from an image of a code either taken directly with the phone camera or
@@ -72,13 +73,9 @@ notebook to open and nothing to edit.
 
 The trade-off is fewer options that can be tweaked, since the error
 correction level, the black-on-white colors, and the margin are frozen,
-and the PNG is generated at a fixed size, which is enough for printing.
+and the resulting PNG is generated at a fixed size, which is enough for printing.
 
-The buttons also work for app links such as obsidian:/\/ or claude:/\/,
-and the code is generated in the browser, although the small QR library
-is fetched once when the page loads, so the first visit needs a
-connection. For custom sizes, colors, or a higher error correction
-level, the JupyterLite notebook with segno remains the better choice.
+The buttons also work for app links such as obsidian:/\/ or claude:/\/. For custom sizes, colors, or a higher error correction level, the JupyterLite notebook with #emph[segno] module remains the better choice.
 
 = Label Designer
 <label-designer>
@@ -106,7 +103,7 @@ codes are better reprinted from time to time.
 = Pele-Mermaid Diagrams
 <pele-mermaid-diagrams>
 The INK notebook includes a browser-based diagram builder that
-complements the Ascii-to-Svg tool (No.~9). Instead of arranging
+complements the Ascii-to-Svg tool (No.09). Instead of arranging
 characters by hand, you describe a diagram using Mermaid’s text-based
 syntax. #link("https://pele.run")[Pele] is a Mermaid-compatible
 rendering engine that supports many of Mermaid’s diagram types while
@@ -117,8 +114,7 @@ code in the code box. The preview shows the result, so you can adjust
 the wording, direction, and connections until the diagram communicates
 clearly. This makes the tool useful when a label needs more than a short
 note or a QR code. You could create a small flowchart that explains how
-to find an affordable office item, compare options, or follow
-instructions on your website. The image below shows the editable Mermaid
+to find an office item, compare options, or follow instructions on your website. The image below shows the editable Mermaid
 code box (left) and the diagram preview (right). In the preview, inset B
 shows the flowchart placed on a printable thermal label, alongside a QR
 code.
