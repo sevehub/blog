@@ -27,7 +27,7 @@ notes and to everything that is quicker on paper than on a screen. It is
 paired with a digital toolbox available through a QR code printed inside the
 notebook, for the tasks that are better handled in digital form.
 
-The first tool (No.~02) described here is the #strong[Bookmark Manager].
+The first tool (No. 02) described here is the #strong[Bookmark Manager].
 It is a single-file application that stores URLs in the browser without
 reaching an external server, so no login or account is required and all
 data remains on the local device.
@@ -64,6 +64,8 @@ covered
 The QR code is shown directly below the first cell and is also available
 from the file browser as an image file. Right-click the file and choose
 Download to save it locally.
+
+#emph[Branded QR codes] are also easy to create from here, so the code carries the brand colors, and a logo in the center instead of the usual black and white pattern. Error level H keeps the code readable despite the logo. A complete working example is available in the same Jupyter notebook, where the logo can be generated locally or loaded from a URL, and the result is exported as a vector image that stays sharp at any print size.
 
 Another possibility is to create a QR code directly from any saved
 bookmark in the Bookmark Manager, using the #emph[QR PNG] or #emph[QR
