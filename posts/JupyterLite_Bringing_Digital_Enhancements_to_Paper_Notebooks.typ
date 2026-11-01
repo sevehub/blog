@@ -15,7 +15,7 @@
 
 #link("https://sevehub.github.io/sevetechjupyterlite/lab/index.html")[We have a dedicated JupyterLite instance on GitHub Pages] that provides an interactive environment for working with our four notebooks. The instance is enhanced with custom extensions, and includes the SymPy library, giving you a fully equipped computational environment right in your browser with no installation required.
 
-We've already explored JupyterLite's GitHub Gist integration in a different post. If you're looking for a practical way to share and version-control your notebooks, that covers how to link your JupyterLite environment with GitHub Gists.
+We've already explored #link("https://buymeacoffee.com/seve/integrating-jupyterlite-your-daily-workflow")[JupyterLite's GitHub Gist integration] in a different post. If you're looking for a practical way to share and version-control your notebooks, that covers how to link your JupyterLite environment with GitHub Gists.
 
 When most people think of Jupyter, they envision Python notebooks and data science workflows. But JupyterLite supports multiple programming languages, each with distinct use cases.
 
@@ -31,7 +31,7 @@ When most people think of Jupyter, they envision Python notebooks and data scien
 
 + *P5.js for Creative Coding and Visualization*
 
-  The integration of P5.js, the JavaScript library for creative coding, brings computational creativity into this browser-native environment.
+  The #link("https://tessarinseve.pythonanywhere.com/nws/2025-07-18.wiki.html")[integration of P5.js], the JavaScript library for creative coding, brings computational creativity into this browser-native environment.
 
 To integrate JupyterLite with your knowledge base, you can add Logseq deep links directly in your notebook.
 
@@ -43,7 +43,7 @@ This feature is fully supported in the file-based version of Logseq, where deep 
 
 The Jupyter notebook linked to the button below demonstrates a simple weekly-review layout that uses Logseq deep links. In a link such as `logseq://graph/GridMemo?page=2026-W15`, `GridMemo` is the name of my Logseq graph and should be replaced with the name of your local graph. The page reference `2026-W15` points to a Weekly Review page, but it can just as easily point to any page in your own graph.
 
-When building a weekly review in Logseq, you simply tag any block you want to include with the weekly tag, for example `#2026-W17`, where 17 is the ISO week number. Every block carrying that tag will automatically appear in the Linked References section of the weekly page named `2026-W17`, giving you an instant overview of everything you marked for that week. This also mirrors the layout of our Weekly Planner Notebooks, so you work with the same ISO week numbers across Logseq, and your analog systems, creating a seamless hybrid workflow.
+When building a weekly review in Logseq, you simply tag any block you want to include with the weekly tag, for example `#2026-W17`, where 17 is the ISO week number. Every block carrying that tag will automatically appear in the Linked References section of the weekly page named `2026-W17`, giving you an instant overview of everything you marked for that week. This also mirrors the layout of our #link("https://a.co/d/0aZ5OPNj")[Weekly Planner Notebooks], so you work with the same ISO week numbers across Logseq, and your analog systems, creating a seamless hybrid workflow.
 
 A similar URI scheme exists in Obsidian, it allows you to create links that open specific files directly via the `obsidian://` protocol. For example, to open your weekly review file, you would use `obsidian://open?path=weeklyreview_2026_w17.md`, which launches the specified file in your Obsidian vault.
 
@@ -65,4 +65,4 @@ We suggest organizing all work using ISO 8601 ordinal numbering to maintain cons
 
 You might consider applying this system ubiquitously throughout your workflow: in filenames (such as `6117_bookmarks.md`), or on INK pages as date markers. This approach remains both human-readable and machine-sortable, making it easy to organize work chronologically without parsing complex date formats.
 
-This pairs well with maintaining a physical Yearfolio, which provides a comprehensive archive along with a smart ordinal ISO 8601 lookup system. With it, you can quickly locate any work from any day of the year using its ordinal number. Paper records, digital notebooks, and computational work will thus all share a unified, single, elegant dating method.
+This pairs well with maintaining #link("https://a.co/d/0ijGOYo3")[a physical Yearfolio], which provides a comprehensive archive along with a smart ordinal ISO 8601 lookup system. With it, you can quickly locate any work from any day of the year using its ordinal number. Paper records, digital notebooks, and computational work will thus all share a unified, single, elegant dating method.
