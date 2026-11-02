@@ -77,6 +77,8 @@ octagonal map carries eight nodes, each ticked from 1 to 20. The vault
 mirrors this scheme with eight folders, `N1` to `N8`, and one note per
 card side, named exactly as the printed reference.
 
+Node folders are created by the vault script before Obsidian is launched for the first time. The #link("https://community.obsidian.md/plugins/index-card")[Index Card plugin], which is available in the Obsidian community plugins, operates on notes inside these folders. When any note inside a node folder is opened, for example 30_Zettelkasten/N1, the plugin applies the exact naming 1F and 1R, which mirrors the paper notebook, and records the creation date in three formats: ISO date (yyyy-mm-dd), ISO day number, and ISO week. The plugin also provides the Ribbon icons for new cards within this folder.
+
 The graph view is used to reproduce the map. One colour group per node
 is defined with a path query, for example `path:30_Zettelkasten/N3/`, so
 that the eight categories appear as eight colours. This is a built-in
